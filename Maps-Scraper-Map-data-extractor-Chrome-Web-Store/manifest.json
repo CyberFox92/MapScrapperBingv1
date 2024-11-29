@@ -1,0 +1,62 @@
+{
+"update_url": "https://clients2.google.com/service/update2/crx",
+
+  "name": "__MSG_appName__",
+  "description": "__MSG_appDes__",
+  "version": "2.4.7",
+  "manifest_version": 3,
+  "default_locale": "en",
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAj4Z3Rx7TszJdhBrbLXterfwLD1YcEig7nSbuWUXPHUC04yBKs0C/btUZ1uf+3CmQz0CMPktxrEaKJv2EZSvpLQt8KCG5wI0qhIxRGeFqzNdtZD6xHVaempJqmxLoV9BK+H1dF3KGX3vafgYnjdNN07LG18sxf1XCs1Qi2rSxNck+gC6Dg8xj4qIilNEHCOtgHUDMi/navaXBTZ4+10NgLiMZRWx8Eck41WBZRT2XBl80sags4zBEk7RB+fhodQAvCoPIL8AXgTQWD+ijTWdgcKKFOEpivfUkMewn7FOTy49ehBrjUJFxgKmwcUL4U8wU7XZOMZ9NliyFSbKavM/vWQIDAQAB",
+  "homepage_url": "https://mapsscraper.net",
+  "icons": {
+    "16": "img/logo-16.png",
+    "32": "img/logo-32.png",
+    "48": "img/logo-48.png",
+    "128": "img/logo-128.png"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "img/logo-48.png"
+  },
+  "background": {
+    "service_worker": "service-worker-loader.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "js": [
+        "assets/content-script-loader.chunk-824c031b.b70fa58b.js"
+      ],
+      "matches": [
+        "*://*.bing.com/maps*"
+      ],
+      "run_at": "document_end",
+      "all_frames": false
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "resources": [
+        "img/*",
+        "assets/*",
+        "cframe.html"
+      ]
+    },
+    {
+      "matches": [
+        "*://*.bing.com/*"
+      ],
+      "resources": [
+        "assets/chunk-94b083a2.js",
+        "assets/chunk-824c031b.js"
+      ]
+    }
+  ],
+  "permissions": [
+    "storage",
+    "tabs"
+  ]
+}
